@@ -4,7 +4,7 @@
 #
 Name     : jupyter_console
 Version  : 5.1.0
-Release  : 2
+Release  : 3
 URL      : https://pypi.python.org/packages/cb/83/f96e41ddb29ad76f806d6412e87e64af3120482dc0d8b5decf5eb8d82b99/jupyter_console-5.1.0.tar.gz
 Source0  : https://pypi.python.org/packages/cb/83/f96e41ddb29ad76f806d6412e87e64af3120482dc0d8b5decf5eb8d82b99/jupyter_console-5.1.0.tar.gz
 Summary  : Jupyter terminal console
