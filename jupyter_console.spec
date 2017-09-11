@@ -4,14 +4,13 @@
 #
 Name     : jupyter_console
 Version  : 5.2.0
-Release  : 6
+Release  : 7
 URL      : http://pypi.debian.net/jupyter_console/jupyter_console-5.2.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter_console/jupyter_console-5.2.0.tar.gz
 Summary  : Jupyter terminal console
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: jupyter_console-bin
-Requires: jupyter_console-legacypython
 Requires: jupyter_console-python
 Requires: Sphinx
 Requires: ipython
@@ -36,18 +35,9 @@ Group: Binaries
 bin components for the jupyter_console package.
 
 
-%package legacypython
-Summary: legacypython components for the jupyter_console package.
-Group: Default
-
-%description legacypython
-legacypython components for the jupyter_console package.
-
-
 %package python
 Summary: python components for the jupyter_console package.
 Group: Default
-Requires: jupyter_console-legacypython
 
 %description python
 python components for the jupyter_console package.
@@ -61,15 +51,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505004532
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1505097082
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505004532
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -80,10 +67,6 @@ echo ----[ mark ]----
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/jupyter-console
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
