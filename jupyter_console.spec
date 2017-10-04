@@ -4,13 +4,14 @@
 #
 Name     : jupyter_console
 Version  : 5.2.0
-Release  : 9
+Release  : 10
 URL      : http://pypi.debian.net/jupyter_console/jupyter_console-5.2.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter_console/jupyter_console-5.2.0.tar.gz
 Summary  : Jupyter terminal console
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: jupyter_console-bin
+Requires: jupyter_console-python3
 Requires: jupyter_console-python
 Requires: Sphinx
 Requires: ipython
@@ -38,9 +39,19 @@ bin components for the jupyter_console package.
 %package python
 Summary: python components for the jupyter_console package.
 Group: Default
+Requires: jupyter_console-python3
 
 %description python
 python components for the jupyter_console package.
+
+
+%package python3
+Summary: python3 components for the jupyter_console package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the jupyter_console package.
 
 
 %prep
@@ -51,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505408923
+export SOURCE_DATE_EPOCH=1507155688
 python3 setup.py build -b py3
 
 %install
@@ -69,5 +80,8 @@ echo ----[ mark ]----
 /usr/bin/jupyter-console
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
