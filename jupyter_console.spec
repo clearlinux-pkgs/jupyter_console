@@ -19,7 +19,7 @@ Requires: jupyter_client
 Requires: jupyter_core
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
