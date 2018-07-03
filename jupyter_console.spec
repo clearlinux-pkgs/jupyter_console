@@ -4,7 +4,7 @@
 #
 Name     : jupyter_console
 Version  : 5.2.0
-Release  : 18
+Release  : 19
 URL      : http://pypi.debian.net/jupyter_console/jupyter_console-5.2.0.tar.gz
 Source0  : http://pypi.debian.net/jupyter_console/jupyter_console-5.2.0.tar.gz
 Summary  : Jupyter terminal console
