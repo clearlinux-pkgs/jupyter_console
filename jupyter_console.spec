@@ -4,16 +4,16 @@
 #
 Name     : jupyter_console
 Version  : 6.0.0
-Release  : 22
+Release  : 23
 URL      : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
 Summary  : Jupyter terminal console
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
-Requires: jupyter_console-bin
-Requires: jupyter_console-python3
-Requires: jupyter_console-license
-Requires: jupyter_console-python
+Requires: jupyter_console-bin = %{version}-%{release}
+Requires: jupyter_console-license = %{version}-%{release}
+Requires: jupyter_console-python = %{version}-%{release}
+Requires: jupyter_console-python3 = %{version}-%{release}
 Requires: Sphinx
 Requires: ipython
 Requires: jupyter_client
@@ -68,13 +68,13 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538619984
+export SOURCE_DATE_EPOCH=1541267162
 python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/jupyter_console
-cp COPYING.md %{buildroot}/usr/share/doc/jupyter_console/COPYING.md
+mkdir -p %{buildroot}/usr/share/package-licenses/jupyter_console
+cp COPYING.md %{buildroot}/usr/share/package-licenses/jupyter_console/COPYING.md
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -89,7 +89,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/doc/jupyter_console/COPYING.md
+/usr/share/package-licenses/jupyter_console/COPYING.md
 
 %files python
 %defattr(-,root,root,-)
