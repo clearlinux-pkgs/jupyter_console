@@ -4,20 +4,16 @@
 #
 Name     : jupyter_console
 Version  : 6.0.0
-Release  : 24
+Release  : 25
 URL      : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
-Summary  : Jupyter terminal console
+Summary  : An IPython-like terminal frontend for Jupyter kernels in any language.
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: jupyter_console-bin = %{version}-%{release}
 Requires: jupyter_console-license = %{version}-%{release}
 Requires: jupyter_console-python = %{version}-%{release}
 Requires: jupyter_console-python3 = %{version}-%{release}
-Requires: Sphinx
-Requires: ipython
-Requires: jupyter_client
-Requires: jupyter_core
 BuildRequires : buildreq-distutils3
 
 %description
@@ -68,7 +64,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541267162
+export SOURCE_DATE_EPOCH=1551027804
+export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
