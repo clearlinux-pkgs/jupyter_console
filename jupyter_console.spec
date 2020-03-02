@@ -4,7 +4,7 @@
 #
 Name     : jupyter_console
 Version  : 6.0.0
-Release  : 29
+Release  : 30
 URL      : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
 Summary  : An IPython-like terminal frontend for Jupyter kernels in any language.
@@ -51,6 +51,7 @@ python components for the jupyter_console package.
 Summary: python3 components for the jupyter_console package.
 Group: Default
 Requires: python3-core
+Provides: pypi(jupyter-console)
 
 %description python3
 python3 components for the jupyter_console package.
@@ -58,20 +59,28 @@ python3 components for the jupyter_console package.
 
 %prep
 %setup -q -n jupyter_console-6.0.0
+cd %{_builddir}/jupyter_console-6.0.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1551027804
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1583162836
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/jupyter_console
-cp COPYING.md %{buildroot}/usr/share/package-licenses/jupyter_console/COPYING.md
+cp %{_builddir}/jupyter_console-6.0.0/COPYING.md %{buildroot}/usr/share/package-licenses/jupyter_console/4864371bd27fe802d84990e2a5ee0d60bb29e944
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -86,7 +95,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/jupyter_console/COPYING.md
+/usr/share/package-licenses/jupyter_console/4864371bd27fe802d84990e2a5ee0d60bb29e944
 
 %files python
 %defattr(-,root,root,-)
