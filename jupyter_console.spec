@@ -4,10 +4,10 @@
 #
 Name     : jupyter_console
 Version  : 6.0.0
-Release  : 30
+Release  : 31
 URL      : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/92/c8/b7e768a3dec19b09d8ad5296a479e03c19a741a1bb4abab27c09236b8562/jupyter_console-6.0.0.tar.gz
-Summary  : An IPython-like terminal frontend for Jupyter kernels in any language.
+Summary  : Jupyter terminal console
 Group    : Development/Tools
 License  : BSD-3-Clause-Clear
 Requires: jupyter_console-bin = %{version}-%{release}
@@ -51,7 +51,12 @@ python components for the jupyter_console package.
 Summary: python3 components for the jupyter_console package.
 Group: Default
 Requires: python3-core
-Provides: pypi(jupyter-console)
+Provides: pypi(jupyter_console)
+Requires: pypi(ipykernel)
+Requires: pypi(ipython)
+Requires: pypi(jupyter_client)
+Requires: pypi(prompt_toolkit)
+Requires: pypi(pygments)
 
 %description python3
 python3 components for the jupyter_console package.
@@ -66,8 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583162836
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583536533
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
