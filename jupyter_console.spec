@@ -4,7 +4,7 @@
 #
 Name     : jupyter_console
 Version  : 6.4.0
-Release  : 46
+Release  : 47
 URL      : https://files.pythonhosted.org/packages/75/c7/5e585e703a2fbc56c529b982bdd4bfedd47a4737e11093c58df7e6c7216e/jupyter_console-6.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/75/c7/5e585e703a2fbc56c529b982bdd4bfedd47a4737e11093c58df7e6c7216e/jupyter_console-6.4.0.tar.gz
 Summary  : Jupyter terminal console
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635745293
+export SOURCE_DATE_EPOCH=1635745359
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
