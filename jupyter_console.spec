@@ -4,7 +4,7 @@
 #
 Name     : jupyter_console
 Version  : 6.4.0
-Release  : 47
+Release  : 48
 URL      : https://files.pythonhosted.org/packages/75/c7/5e585e703a2fbc56c529b982bdd4bfedd47a4737e11093c58df7e6c7216e/jupyter_console-6.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/75/c7/5e585e703a2fbc56c529b982bdd4bfedd47a4737e11093c58df7e6c7216e/jupyter_console-6.4.0.tar.gz
 Summary  : Jupyter terminal console
